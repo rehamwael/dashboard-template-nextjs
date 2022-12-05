@@ -34,7 +34,7 @@ const ProductionPerformanceComponent = () => {
                 </Grid>
               </Grid>
             </Grid>
-            <Grid item xs={12} md={3} sx={{ mt: 4, maxHeight: "180px" }}>
+            <Grid item xs={12} md={3} sx={{ maxHeight: "180px" }}>
               <Grid container>
                 <Grid item xs={6} md={6}>
                   <Doughnut

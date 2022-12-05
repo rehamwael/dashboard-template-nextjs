@@ -72,13 +72,13 @@ const DefaultPalette = (mode: PaletteMode, themeColor: ThemeColor) => {
       contrastText: '#FFF'
     },
     grey: {
-      50: '#FAFAFA',
+      50: '#F9FBFF',
       100: '#F5F5F5',
       200: '#EEEEEE',
       300: '#D0D7E5',
       400: '#BDBDBD',
       500: '#9E9E9E',
-      600: '#757575',
+      600: '#7D879F',
       700: '#F2F4FB',
       800: '#5F6574',
       900: '#4B505D',
