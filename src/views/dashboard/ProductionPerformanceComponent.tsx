@@ -10,8 +10,6 @@ import { Grid } from '@mui/material'
 // react plugin used to create charts
 import { Doughnut } from 'react-chartjs-2'
 import { violationData, impactData } from 'src/model/data'
-import "chartjs-plugin-doughnut-innertext";
- 
 const ProductionPerformanceComponent = () => {
   return (
     <Card>
