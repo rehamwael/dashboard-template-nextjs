@@ -6,76 +6,8 @@ import TableHead from '@mui/material/TableHead'
 import TableBody from '@mui/material/TableBody'
 import TableCell from '@mui/material/TableCell'
 import TableContainer from '@mui/material/TableContainer'
+import { tableRowsPPI } from 'src/model/data'
 
-
-
-const rows = [
-  {
-    workItem: "Cutting 6 Pipes",
-    index: 1.10,
-    quality: "01",
-    quantity: "02",
-    effort: 0,
-    totalEvents: '03 Events',
-  },
-  {
-    workItem: "Move out 4 Pipes",
-    index: 1.10,
-    quality: "01",
-    quantity: "02",
-    effort: 0,
-    totalEvents: '09 Events',
-  },
-  {
-    workItem: "Cutting 6 Pipes",
-    index: 1.10,
-    quality: "01",
-    quantity: "02",
-    effort: 0,
-    totalEvents: '02 Events',
-  },
-  {
-    workItem: "Painting Pipes",
-    index: 1.10,
-    quality: "01",
-    quantity: "02",
-    effort: 0,
-    totalEvents: '03 Events',
-  },
-  {
-    workItem: "Cutting 4 Pipes",
-    index: 1.10,
-    quality: "01",
-    quantity: "02",
-    effort: 0,
-    totalEvents: '05 Events',
-  },
-
-  {
-    workItem: "Cutting 6 Pipes",
-    index: 1.10,
-    quality: "01",
-    quantity: "02",
-    effort: 0,
-    totalEvents: '04 Events',
-  },
-  {
-    workItem: "Move in 10 Pipes",
-    index: 1.10,
-    quality: "01",
-    quantity: "02",
-    effort: 0,
-    totalEvents: '07 Events',
-  },
-]
-
-const statusObj = {
-  applied: { color: 'info' },
-  rejected: { color: 'error' },
-  current: { color: 'primary' },
-  resigned: { color: 'warning' },
-  professional: { color: 'success' }
-}
 
 const DashboardTable = () => {
   return (
@@ -95,7 +27,7 @@ const DashboardTable = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map((row) => (
+            {tableRowsPPI.map((row) => (
               <TableRow hover key={row.index} sx={{ '&:last-of-type td, &:last-of-type th': { border: 0 } }}>
                 <TableCell>
                   {row.workItem}

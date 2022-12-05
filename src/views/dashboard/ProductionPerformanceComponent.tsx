@@ -7,14 +7,12 @@ import CardContent from '@mui/material/CardContent'
 
 // ** Types Imports
 import { Grid } from '@mui/material'
-import { Chart, ArcElement } from 'chart.js';
 // react plugin used to create charts
- import { Doughnut } from 'react-chartjs-2';
- import { violationData, impactData } from 'src/MockData/data'
-
-
+import { Doughnut } from 'react-chartjs-2'
+import { violationData, impactData } from 'src/model/data'
+import "chartjs-plugin-doughnut-innertext";
+ 
 const ProductionPerformanceComponent = () => {
-  Chart.register(ArcElement)
   return (
     <Card>
       <CardContent>
@@ -28,54 +26,81 @@ const ProductionPerformanceComponent = () => {
                   <Box sx={{ width: "14px", height: "14px", backgroundColor: "warning.dark", borderRadius: "5px", mr: 2 }} />
                   <Typography color="primary.main" sx={{ fontSize: "14px" }}>In Progress (Execution)</Typography>
               </Grid>
+              <Grid display="flex" alignItems="center" sx={{ mt: 7 }}>
+                <img src="/images/picture.png" height={36} width={36} />
+                <Grid sx={{ ml: 3 }}>
+                  <Typography variant='body1' sx={{ fontSize: "12px" }} color="primary.main">Kunwar Singh</Typography>
+                  <Typography variant='body1'  sx={{ fontSize: "10px" }}>Accountable Owner</Typography>
+                </Grid>
+              </Grid>
             </Grid>
             <Grid item xs={12} md={3} sx={{ mt: 4, maxHeight: "180px" }}>
-                <Doughnut
-                    data={violationData}
-                    options={ {
-                      plugins: {
+              <Grid container>
+                <Grid item xs={6} md={6}>
+                  <Doughnut
+                      data={violationData}
+                      options={{
                         legend: {
-                          display: true,
-                          position: 'right'
+                          display: false
                         },
-                        tooltip: {
-                          callbacks: {
-                            label: (context) => {
-                              let label = `${context.label.split(`${context.parsed}`)[0]}: ${context.parsed}%`;
-                              return label;
-                            }
-                          }
-                        }
-                      },
-                      cutout: '85%',
-                      responsive: true,
-                      maintainAspectRatio: false,
-                    }}
-                />
+                        cutoutPercentage: 85,
+                        responsive: true,
+                        maintainAspectRatio: false,
+                      }}
+                  />
+                  </Grid>
+                  <Grid item xs={6} md={6} display="flex">
+                  <Grid>
+                    {violationData.datasets[0].backgroundColor.map(data => (
+                      <Box sx={{ background: data, height: "10px", width: "10px", mt: 7, mr: 1.5, borderRadius: "3px" }} />
+                    ))}
+                  </Grid>
+                  <Grid>
+                    {violationData.labels.map(data => (
+                      <Typography sx={{ mt: 5.6, mr: 1, fontSize: "12px" }}>{data} ..............</Typography>
+                    ))}
+                  </Grid>
+                  <Grid>
+                    {violationData.datasets[0].data.map(data => (
+                      <Typography sx={{ mt: 5.6, fontSize: "12px" }}>{data}</Typography>
+                    ))}
+                  </Grid>
+                  </Grid>
+                </Grid>
             </Grid>
             <Grid item xs={12} md={3}  sx={{ maxHeight: "180px" }}>
+            <Grid container>
+                <Grid item xs={6} md={6}>
                 <Doughnut
                     data={impactData}
-                    options={ {
-                      plugins: {
-                        legend: {
-                          display: true,
-                          position: 'right'
-                        },
-                        tooltip: {
-                          callbacks: {
-                            label: (context) => {
-                              let label = `${context.label.split(`${context.parsed}`)[0]}: ${context.parsed}%`;
-                              return label;
-                            }
-                          }
-                        }
+                    options={{
+                      legend: {
+                        display: false
                       },
-                      cutout: '85%',
+                      cutoutPercentage: 85,
                       responsive: true,
                       maintainAspectRatio: false,
                     }}
                 />
+                  </Grid>
+                  <Grid item xs={6} md={6} display="flex">
+                  <Grid>
+                    {impactData.datasets[0].backgroundColor.map(data => (
+                      <Box sx={{ background: data, height: "10px", width: "10px", mt: 7, mr: 1.5, borderRadius: "3px" }} />
+                    ))}
+                  </Grid>
+                  <Grid>
+                    {impactData.labels.map(data => (
+                      <Typography sx={{ mt: 5.6, mr: 1, fontSize: "12px" }}>{data} ..............</Typography>
+                    ))}
+                  </Grid>
+                  <Grid>
+                    {impactData.datasets[0].data.map(data => (
+                      <Typography sx={{ mt: 5.6, fontSize: "12px" }}>{data}</Typography>
+                    ))}
+                  </Grid>
+                  </Grid>
+                </Grid>
             </Grid>
             <Grid item xs={12} md={3}>
               <Box sx={{ backgroundColor: "grey.700", p: 10, height: "180px", width: "370px", display: "flex", flexDirection: "column", justifyContent: "flex-end", borderRadius: "5px" }}>
